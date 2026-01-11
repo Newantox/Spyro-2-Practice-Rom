@@ -1,0 +1,127 @@
+printf = 0x8005ab18;
+sprintf = 0x800594ac;
+DrawText = 0x8004a374;
+_testfunction = 0x8002db08;
+memset = 0x8001b3c8;
+memcpy = 0x8001b40c;
+
+_spyro = 0x80069ff0;
+
+ptr_MobyArray = 0x80066f14;
+ptrToEndOfMobys = 0x80066FB4;
+ptr_DynamicMobyArray = 0x80066fd4;
+count_DynamicMobys = 0x80066f3c;
+
+ptr_ParticleArray = 0x80066f18;
+
+_OnWorldEnter = 0x8001c734;
+_maybeglobalSpawn = 0x8006b294;
+
+_ProcessSpyroInput = 0x80035d38;
+
+speed = 0x8006a090;
+_gameState = 0x800681c8;
+_updateFlags = 0x80015a14;
+_cheatSpyroColor = 0x800698cc;
+_colorArray = 0x800637d4;
+
+_maybeSpyroHorizontalDecay = 0x8006a0a8;
+_spyroTrueVelocityX = 0x8006a084;
+_spyroTrueVelocityY = 0x8006a088;
+_spyroTrueVelocityZ = 0x8006a08c;
+
+_spyroPhysicsVelocityX = 0x8006a090;
+_spyroPhysicsVelocityY = 0x8006a094;
+_spyroPhysicsVelocityZ = 0x8006a098;
+
+_spyroAirTime = 0x8006a0b0;
+
+_spyroDJRelatedUnk = 0x8006a044;
+
+_cosineLookup = 0x80061c58;
+_sineLookup = 0x80061bd8;
+
+_spyroByteRotationZ = 0x80069ffe;
+
+_RenderGame = 0x800156fc;
+
+_ReadInput = 0x8001271c;
+
+_VectorCopy = 0x8001bdb0;
+
+_currentButtons = 0x8006a9ac;
+_inputState = 0x800683a0;
+
+_fireballFlag = 0x800698bb;
+
+_DrawOutlinedBG = 0x8004d348;
+_DrawText_Right = 0x8004da6c;
+
+_firstOffset = 0x80039a80;
+_secondOffset = 0x80039a90;
+
+_audioBank = 0x80067020;
+_PlayAudio = 0x80050720;
+
+_vsync = 0x80058edc;
+_DrawNumberBig = 0x80052328;
+_DrawNumberSmall = 0x8004dad0;
+
+_zoe_checkpoint_active = 0x80067414;
+_menuAnimation = 0x800698EC;
+_pause_submenu_index = 0x800698F8;
+_menuState = 0x800698f0;
+_currentLoadedLevel = 0x80066f90;
+_loadLevelID = 0x8006715c;
+_parentHomeworldArray = 0x80064b84;
+_levelID = 0x80066f54;
+_loadingStatus = 0x80066eec;
+_unknownGameOver = 0x80068304;
+GAME_unknownGameOver = 0x80050aac;
+
+GAME_unknown79c = 0x8001a79c;
+
+_sparxHealth = 0x8006a248;
+GAME_gems_collected_value = 0x800670cc;
+GAME_world_gems_collected = 0x8006ac04;
+GAME_orbs_collected_count = 0x8006702c;
+GAME_gems_collected_status = 0x8006AC84;
+GAME_orbs_collected_status = 0x80069FD0;
+GAME_end_level_portals_status = 0x8006B264;
+GAME_num_talismans = 0x80067108;
+GAME_global_progress_flags = 0x80064670;
+GAME_worlds_entered = 0x8006b084;
+GAME_NPC_talked_flags = 0x8006a980;
+GAME_crushDeathCounter = 0x80066e78;
+GAME_unknown_boss_thing = 0x80064784;
+GAME_total_skillpoints = 0x80066f60;
+GAME_skillpoint_flags = 0x8006470c;
+GAME_unknown_prog = 0x80061950;
+GAME_GameOver = 0x8001a6f8;
+GAME_OnDeath = 0x80032e74;
+GAME_OnWorldEnter = 0x8001c734;
+_lives = 0x8006712c;
+_unknown_death = 0x80067178;
+_unknown_death2 = 0x80067024;
+
+LIBC_bzero = 0x8005c1b8;
+
+_splashTransition = 0x800698f4;
+_blackOverlayOpacity = 0x80066f68;
+_unknownTransition = 0x800670c8;
+_checkpointStorage = 0x80067408;
+_checkpointData = 0x8006718c;
+
+cam_bossfix = 0x80067eB0;
+cam_homefix = 0x80067F28;
+
+_idolChestX = 0x80191144;
+_idolChestY = 0x80191148;
+_idolChestZ = 0x8019114C;
+
+ptr_dynamic_terrain = 0x800681e0;
+
+_ptr_moving_collision_data = 0x800681F8;
+_ptr_moving_texture_data = 0x800681E8;
+_ptr_low_lod_texture_data = 0x80068208;
+_ptr_textures_array = 0x800681BC;
