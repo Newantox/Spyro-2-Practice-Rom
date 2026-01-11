@@ -5,7 +5,7 @@
 int buttons;
 int spare;
 Vector tempVec;
-int composer = FALSE;
+int flag1 = FALSE;
 char myBuffer[10];
 int timer;
 int vTimer = 0;
