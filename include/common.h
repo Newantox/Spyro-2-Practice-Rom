@@ -87,6 +87,7 @@ extern int* ptr_DynamicMobyArray;
 extern int count_DynamicMobys;
 extern int* ptr_ParticleArray;
 extern byte* _spyro;
+extern int _cameraZ;
 
 //void memcopy(void * target , void * values , int length);
 
@@ -102,6 +103,7 @@ void _ProcessSpyroInput();
 void LIBC_bzero(unsigned char* p, int n);
 
 void _DrawOutlinedBG(short left, short right, short top, short bottom);
+void _DrawDarkTransparentRect(short left, short right, short top, short bottom);
 
 int printf(char* str, ...);
 int sprintf(char* str, char* format, ...);
@@ -186,6 +188,8 @@ extern int _unknownTransition;
 extern int _checkpointStorage;
 extern int _checkpointData;
 
+extern int _cameraState;
+
 extern char _parentHomeworldArray[32];
 extern int _levelID;
 
@@ -205,5 +209,10 @@ extern int * _ptr_moving_collision_data;
 extern int * _ptr_moving_texture_data;
 extern int * _ptr_low_lod_texture_data;
 extern int * _ptr_textures_array;
+
+extern int _unkLeaveLevel;
+
+extern int lookToStartTimer;
+extern void updateTimers(void);
 
 #endif /* COMMON_H */

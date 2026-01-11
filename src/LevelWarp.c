@@ -17,10 +17,12 @@ void LevelWarp(int targetID)
     for(int i = 0; i < 13; i++) {
         _parentHomeworldArray[i] = targetID;
     }
+    _cameraZ = 0x50000;
     _zoe_checkpoint_active = 0;
 	_lives = -1;
     _menuAnimation = 0x11;
 	GAME_GameOver();
+    lookToStartTimer = 1;
 }
 
 void ChangeGameOver(void)

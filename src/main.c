@@ -7,19 +7,11 @@ int spare;
 Vector tempVec;
 int flag1 = FALSE;
 char myBuffer[10];
-int timer;
-int vTimer = 0;
-int vTimerStart = 0;
-int minutes;
-int secondsTens;
-int secondsUnits;
-int milliseconds;
-int milliseconds2;
 int isWarping = FALSE;
-char timerAscii[10];
 int savestatemade = 0;
 
 int first = true;
+int counter = 0;
 
 extern char slowMotion;
 extern char timeStop;
@@ -39,23 +31,12 @@ void mainFunction() {
 		tempVec.y = 0x1d283;
 		tempVec.z = 0x4486;
 	}
-	timer = timer + 1;
-	vTimer = _vsync(-1) - vTimerStart;
+	counter += 1;
+	printf("Counter: %d\n",counter);
 
 	_RenderGame();
-	if (slowMotion) {
-		if (_updateFlags == 0x18 && (timer % 2 == 0)) {
-			_updateFlags = 0x7b;
-		}
-		else if (_updateFlags == 0x7b) {
-			_updateFlags = 0x18;
-		}
-	}
-	if (timeStop) {
-		if (_updateFlags == 0x7b) {
-			_updateFlags = 0x18;
-		}
-	}
+	mainTimers();
+
 	if (ButtonCombo(L2_BUTTON + R2_BUTTON)) {
 		SetMenu(&menu);
 		MenuToggle();
@@ -67,7 +48,7 @@ void mainFunction() {
 	if (ButtonCombo(L1_BUTTON + R1_BUTTON + X_BUTTON)) {
 		if (isWarping == FALSE) {
 			//isWarping = TRUE;
-			LevelWarp(0x42);
+			LevelWarp(31);
 		}
 
 			//_menuAnimation = 17;
@@ -87,12 +68,6 @@ void mainFunction() {
 		}
 	}
 
-	if (_levelID == 2) {
-		_idolChestX = 0x1D784;
-		_idolChestY = 0xE1D7;
-		_idolChestZ = 0x17C0;
-	}
-
 	if (isWarping) {
 		if (_gameState == 0) {
 			_zoe_checkpoint_active = 0;
@@ -105,50 +80,10 @@ void mainFunction() {
 			_gameState = 3;
 			_menuState = 0;
 
-			vTimerStart = _vsync(-1);
 
 			isWarping = 0;
 		}
-
-		//	_menuAnimation = 17;
-		//	_splashTransition = 5;
-		//	_gameState = 4;
 	}
-
-	  //  _loadLevelID = 26;
-
-		//if (_gameState == 5) {
-		//	_menuAnimation = 17;
-		//	_splashTransition = 5;
-		//	_gameState = 7;
-		//}
-
-	   // if (_gameState == 0) {
-	   //     isWarping = 0;
-	   // } 
-
-		//else if (_gameState == 7) {
-		//	if ((_loadLevelID == 26 || _loadLevelID == 46 || _loadLevelID == 66) && (cam_bossfix == 0x7404 || cam_bossfix == 0xc9b3 || cam_bossfix == 0x11a75)) {
-		//		isWarping = 0;
-		//	_menuAnimation = 0;
-		//		_pause_submenu_index = 0;
-		//		_menuState = 2;
-		//		_gameState = 3;
-		//		_unknownTransition = 1;
-			//}
-			// crush, gulp, ripto starting cams respectively
-			//int is_boss_level_start = (cam_bossfix == 0x7404 || cam_bossfix == 0xc9b3 || cam_bossfix == 0x11a75); //&& rs2.warp_selected_level.type == BOSS;
-			// home world starting cams respectively
-			//int is_homeworld_level_start = (cam_homefix == 0xFFFFFDEF || cam_homefix == 0x0402 || cam_homefix == 0x0401); //&& rs2.warp_selected_level.type == HOMEWORLD;
-
-		   //if (is_boss_level_start || is_homeworld_level_start) {
-			 //   _menuAnimation = 0;
-			 //   _gameState = 3;
-			 //   _pause_submenu_index = 0;
-			 //   _menuState = 0;
-			//}//
-	//	}
-	//}
 
 	if (ButtonCombo(R3_BUTTON)) {
 		SaveState();
@@ -205,7 +140,7 @@ void mainFunction() {
 		_gameState = 3;
 		_menuState = 0;
 
-		vTimerStart = _vsync(-1);
+		lookToStartTimer = 1;
 	}
 
 	//ToggleFireball();
@@ -218,25 +153,7 @@ void mainFunction() {
 		//_DrawText_Right("not pressed", 200, 200, 6);
 	}
 	//_DrawNumberSmall(vTimer,400,200,0);
-	DisplayTime(vTimer);
 	return;
-}
-
-void DisplayTime(int vTimer) {
-	minutes = vTimer * 10 / 35892;
-	secondsTens = ((vTimer * 10) % 35892) / 5982;
-	secondsUnits = ((vTimer * 100) % 59820) / 5982;
-	milliseconds = ((vTimer * 1000) % 59820) / 5982;
-	milliseconds2 = ((vTimer * 10000) % 59820) / 5982;
-
-	if (minutes == 0) {
-		sprintf(timerAscii, "%d%d.%d%d", secondsTens, secondsUnits, milliseconds, milliseconds2);
-	}
-	else {
-		sprintf(timerAscii, "%d:%d%d.%d%d", minutes, secondsTens, secondsUnits, milliseconds, milliseconds2);
-	}
-	//_DrawNumberSmall(vTimer, 400, 300, 1);
-	//_DrawText_Right(timerAscii, 400, 200, 1);
 }
 
 void* memcopy(void* dest, const void* src, int len) {

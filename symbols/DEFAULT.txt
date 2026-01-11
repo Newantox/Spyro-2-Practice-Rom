@@ -6,6 +6,7 @@ memset = 0x8001b3c8;
 memcpy = 0x8001b40c;
 
 _spyro = 0x80069ff0;
+_cameraZ = 0x80067eb4;
 
 ptr_MobyArray = 0x80066f14;
 ptrToEndOfMobys = 0x80066FB4;
@@ -66,9 +67,11 @@ _PlayAudio = 0x80050720;
 _vsync = 0x80058edc;
 _DrawNumberBig = 0x80052328;
 _DrawNumberSmall = 0x8004dad0;
+_DrawDarkTransparentRect = 0x8004d2d8;
 
 _zoe_checkpoint_active = 0x80067414;
 _menuAnimation = 0x800698EC;
+_unkLeaveLevel = 0x80068c40;
 _pause_submenu_index = 0x800698F8;
 _menuState = 0x800698f0;
 _currentLoadedLevel = 0x80066f90;
@@ -114,6 +117,7 @@ _checkpointData = 0x8006718c;
 
 cam_bossfix = 0x80067eB0;
 cam_homefix = 0x80067F28;
+_cameraState = 0x80067ed0;
 
 _idolChestX = 0x80191144;
 _idolChestY = 0x80191148;

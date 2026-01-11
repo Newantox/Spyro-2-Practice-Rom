@@ -34,7 +34,8 @@
             "./src/common.c",
             "./src/pauseMenu.c",
             "./src/save_geo.c",
-            "./src/LevelWarp.c"
+            "./src/LevelWarp.c",
+            "./src/timers.c"
           ],
           "memory_address": "8000B0B8",
           "size": "0",
