@@ -5,12 +5,7 @@ char menuOpen;
 char index;
 struct Menu* currentMenu;
 int startDraw;
-char slowMotion;
-char timeStop;
 extern bool djflag;
-extern int proxyModifier;
-extern int waterModifier;
-
 
 const int CustomCheatColors[7] = { 8,5,9,10,4,1,11 };
 
@@ -24,9 +19,6 @@ void MenuToggle() {
 	startDraw = 0;
 	if (menuOpen == 1) {
 		_updateFlags = 0;
-	}
-	else if (slowMotion || timeStop) {
-		_updateFlags = 0x18;
 	}
 	else {
 		_updateFlags = 0x7b;
@@ -92,10 +84,10 @@ void ColorSlider(int subindex) {
 void MBToggle(int subindex) {
 	switch (subindex) {
 		case 0:
-		currentMenu->items[index].name = "Off";
+		currentMenu->items[index].name = "Moneybags Paid: Off";
 		break;
 		case 1:
-		currentMenu->items[index].name = "On";
+		currentMenu->items[index].name = "Moneybags Paid: On";
 		break;
 	}
 	glacierbridge = subindex;
@@ -125,7 +117,7 @@ Menu menu = { 0, 6, {
     { "Continue", &MenuToggle, BUTTON, 0 },
     { "Fireball", &FireballToggle, BUTTON, 0 },
 	{ "Extended Range", &ERToggle, BUTTON, 0 },
-    { "Moneybags Paid", &MBToggle, 2, 0 },
+    { "Moneybags Paid: Off", &MBToggle, 2, 0 },
 //	{ "Satyrless Tools", &SatyrlessToggle, BUTTON, 0 },
     { "Double Jump", &DoubleJumpToggle, BUTTON, 0 },
     { "Color: Default", &ColorSlider, 7, 0 },
