@@ -36,14 +36,6 @@ void SubMenu(Menu* submenu) {
 	startDraw = 0;
 }
 
-void SlowMotion() {
-	slowMotion = 1 - slowMotion;
-}
-
-void TimeStop() {
-	timeStop = 1 - timeStop;
-}
-
 char* defaultColorString = "Color: Default";
 char* redColorString = "Color: Red    ";
 char* blueColorString = "Color: Blue   ";
