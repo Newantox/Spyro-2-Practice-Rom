@@ -199,9 +199,20 @@ extern short _sineLookup[256];
 
 extern char _spyroByteRotationZ;
 
-extern int _idolChestX;
-extern int _idolChestY;
-extern int _idolChestZ;
+extern short erflag;
+
+extern short glacierbridge;
+extern short aquariasub;
+extern short magmalift;
+extern short glimmerbridge;
+extern short swim;
+extern short climb;
+extern short headbash;
+extern short aquariawall;
+extern short zephyr;
+extern short shady;
+extern short icy;
+extern short canyon;
 
 extern int * ptr_dynamic_terrain;
 

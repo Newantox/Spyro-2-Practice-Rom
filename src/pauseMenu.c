@@ -89,49 +89,55 @@ void ColorSlider(int subindex) {
 	currentMenu->items[index].name = colorString;
 }
 
-void ProxySlider(int subindex) {
-	proxyModifier = (8192 * subindex) / 10;
-	sprintf(currentMenu->items[index].name, "Proxy Strength: %d", subindex);
-}
-
-void WaterSlider(int subindex) {
-	if (subindex == 0) waterModifier = 0;
-	else waterModifier = 2048 + (2048 * subindex);
-	sprintf(currentMenu->items[index].name, "Audio: %d", subindex);
+void MBToggle(int subindex) {
+	switch (subindex) {
+		case 0:
+		currentMenu->items[index].name = "Off";
+		break;
+		case 1:
+		currentMenu->items[index].name = "On";
+		break;
+	}
+	glacierbridge = subindex;
+	aquariasub = subindex;
+	magmalift = subindex;
+	glimmerbridge = subindex;
+	swim = subindex;
+	climb = subindex;
+	headbash = subindex;
+	aquariawall = subindex;
+	zephyr = subindex;
+	shady = subindex;
+	icy = subindex;
+	canyon = subindex;
 }
 
 void DoubleJumpToggle() {
 	djflag = 1 - djflag;
 }
 
-void AudioSlider(int subindex) {
-	_PlayAudio(*(int*)(_audioBank + subindex), 0, 0);
-	sprintf(currentMenu->items[index].name, "Audio: %d", subindex);
+void ERToggle() {
+	erflag = 1 - erflag;
 }
 
-Menu menu = { 0, 9, {
+
+Menu menu = { 0, 6, {
     { "Continue", &MenuToggle, BUTTON, 0 },
     { "Fireball", &FireballToggle, BUTTON, 0 },
-    { "Proxy Strength: 5   ", &ProxySlider, 11, 5 },
-    { "Water jump strength: 1   ", &WaterSlider, 11, 1 },
-    { "Sub Menu 1", &SubMenu, SUBMENU, 0 },
-    { "Color: Default", &ColorSlider, 7, 0 },
+	{ "Extended Range", &ERToggle, BUTTON, 0 },
+    { "Moneybags Paid", &MBToggle, 2, 0 },
+//	{ "Satyrless Tools", &SatyrlessToggle, BUTTON, 0 },
     { "Double Jump", &DoubleJumpToggle, BUTTON, 0 },
-    { "Slow Motion", &SlowMotion, BUTTON, 0 },
-    { "Time Stop", &TimeStop, BUTTON, 0 }
+    { "Color: Default", &ColorSlider, 7, 0 },
 } };
 
-Menu menu2 = { &menu, 4, {
+Menu menu2 = { &menu, 2, {
     { "Continue", &MenuToggle, BUTTON, 0 },
     { "Fireball", &FireballToggle, BUTTON, 0 },
-    { "Proxy Strength: 5   ", &ProxySlider, 11, 5 },
-    { "Water jump strength: 1   ", &WaterSlider, 11, 1 }
+    //{ "Proxy Strength: 5   ", &ProxySlider, 11, 5 },
+   // { "Water jump strength: 1   ", &WaterSlider, 11, 1 }
 } };
 
-Menu menu3 = { &menu2, 2, {
-    { "Continue", &MenuToggle, BUTTON, 0 },
-    { "Audio: 0", &AudioSlider, 100, 0 }
-} };
 
 void PauseMenu() {
 	if (menuOpen) {
@@ -207,7 +213,7 @@ void PauseMenu() {
 			if (currentMenu->items[index].subOptions == SUBMENU) {
 				void (*pointer) (Menu*);
 				pointer = currentMenu->items[index].menuAction;
-				pointer(&menu3);
+//				pointer(&menu3);
 			}
 			else if (currentMenu->items[index].subOptions > -1) {
 				currentMenu->items[index].subIndex = (currentMenu->items[index].subIndex + 1) % (currentMenu->items[index].subOptions);

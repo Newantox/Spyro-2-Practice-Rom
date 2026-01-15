@@ -11,7 +11,6 @@ int isWarping = FALSE;
 int savestatemade = 0;
 
 int first = true;
-int counter = 0;
 
 extern char slowMotion;
 extern char timeStop;
@@ -31,17 +30,16 @@ void mainFunction() {
 		tempVec.y = 0x1d283;
 		tempVec.z = 0x4486;
 	}
-	counter += 1;
-	printf("Counter: %d\n",counter);
 
 	_RenderGame();
 	mainTimers();
+	//*((int*)0x80019ca0) = 0x0;
 
-	if (ButtonCombo(L2_BUTTON + R2_BUTTON)) {
+	if (ButtonCombo(L1_BUTTON + R1_BUTTON + TRIANGLE_BUTTON)) {
 		SetMenu(&menu);
 		MenuToggle();
 	}
-	if (ButtonCombo(SQUARE_BUTTON + L2_BUTTON)) {
+	if (ButtonCombo(L1_BUTTON + R1_BUTTON + SQUARE_BUTTON)) {
 		SetMenu(&menu2);
 		MenuToggle();
 	}
@@ -129,7 +127,7 @@ void mainFunction() {
 		GAME_total_skillpoints = 0;
 		LIBC_bzero((unsigned char*)&GAME_skillpoint_flags, 0x20);
 
-		ClearWorldStuffTest();
+		//ClearWorldStuffTest();
 
 		//Reset unknown
 		//GAME_unknown_prog

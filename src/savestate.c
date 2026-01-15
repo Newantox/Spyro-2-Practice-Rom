@@ -47,8 +47,9 @@ void SaveState() {
 
 	// Load static mobys UP TO unchangable sparx data
 	int size_of_moby_arr_in_level = ((byte*)ptrToEndOfMobys) - ((byte*)ptr_MobyArray);
-	printf("up to sparx data: %X", size_of_moby_arr_in_level);
+	printf("test1\n");
 	memcopy(local_savestate_region, ptr_MobyArray, size_of_moby_arr_in_level);
+	printf("test2\n");
 	local_savestate_region += size_of_moby_arr_in_level;
 
 	//Copy rest of moby data past that unchangable sparx data
@@ -218,31 +219,31 @@ void SaveState() {
 	local_savestate_region += 0x14c;
 
 	//Copy terrain data
-	char * startOfCurrentBlock = ptr_dynamic_terrain;
-	int sizeOfCurrentBlock = *((int*) startOfCurrentBlock);
+	//char * startOfCurrentBlock = ptr_dynamic_terrain;
+	//int sizeOfCurrentBlock = *((int*) startOfCurrentBlock);
 
-	printf("1:Start of block: %X\nSize of block: %X\n", startOfCurrentBlock, sizeOfCurrentBlock);
+	//printf("1:Start of block: %X\nSize of block: %X\n", startOfCurrentBlock, sizeOfCurrentBlock);
 
-	memcopy(local_savestate_region,startOfCurrentBlock,sizeOfCurrentBlock);
-	local_savestate_region += sizeOfCurrentBlock;
+	//memcopy(local_savestate_region,startOfCurrentBlock,sizeOfCurrentBlock);
+	//local_savestate_region += sizeOfCurrentBlock;
 
-	startOfCurrentBlock += sizeOfCurrentBlock;
-	sizeOfCurrentBlock = *((int*) startOfCurrentBlock);
+	//startOfCurrentBlock += sizeOfCurrentBlock;
+	//sizeOfCurrentBlock = *((int*) startOfCurrentBlock);
 
-	printf("2:Start of block: %X\nSize of block: %X\n", startOfCurrentBlock, sizeOfCurrentBlock);
+	//printf("2:Start of block: %X\nSize of block: %X\n", startOfCurrentBlock, sizeOfCurrentBlock);
 
-	memcopy(local_savestate_region,startOfCurrentBlock,sizeOfCurrentBlock);
-	local_savestate_region += sizeOfCurrentBlock;
+	//memcopy(local_savestate_region,startOfCurrentBlock,sizeOfCurrentBlock);
+	//local_savestate_region += sizeOfCurrentBlock;
 
-	startOfCurrentBlock += sizeOfCurrentBlock;
-	sizeOfCurrentBlock = *((int*) startOfCurrentBlock);
+	//startOfCurrentBlock += sizeOfCurrentBlock;
+	//sizeOfCurrentBlock = *((int*) startOfCurrentBlock);
 
-	printf("3:Start of block: %X\nSize of block: %X\n", startOfCurrentBlock, sizeOfCurrentBlock);
+	//printf("3:Start of block: %X\nSize of block: %X\n", startOfCurrentBlock, sizeOfCurrentBlock);
 
-	memcopy(local_savestate_region,startOfCurrentBlock,sizeOfCurrentBlock);
-	local_savestate_region += sizeOfCurrentBlock;
+	//memcopy(local_savestate_region,startOfCurrentBlock,sizeOfCurrentBlock);
+	//local_savestate_region += sizeOfCurrentBlock;
 
-	SaveGeoData(local_savestate_region);
+	//SaveGeoData(local_savestate_region);
 
 }
 
@@ -461,24 +462,24 @@ void LoadState() {
 	local_savestate_region += 0x14c;
 
 	//Copy terrain data
-	char * startOfCurrentBlock = ptr_dynamic_terrain;
-	int sizeOfCurrentBlock = *((int*) startOfCurrentBlock);
+	// char * startOfCurrentBlock = ptr_dynamic_terrain;
+	// int sizeOfCurrentBlock = *((int*) startOfCurrentBlock);
 
-	memcopy(startOfCurrentBlock, local_savestate_region,sizeOfCurrentBlock);
-	local_savestate_region += sizeOfCurrentBlock;
+	// memcopy(startOfCurrentBlock, local_savestate_region,sizeOfCurrentBlock);
+	// local_savestate_region += sizeOfCurrentBlock;
 
-	startOfCurrentBlock += sizeOfCurrentBlock;
-	sizeOfCurrentBlock = *((int*) startOfCurrentBlock);
+	// startOfCurrentBlock += sizeOfCurrentBlock;
+	// sizeOfCurrentBlock = *((int*) startOfCurrentBlock);
 
-	memcopy(startOfCurrentBlock,local_savestate_region,sizeOfCurrentBlock);
-	local_savestate_region += sizeOfCurrentBlock;
+	// memcopy(startOfCurrentBlock,local_savestate_region,sizeOfCurrentBlock);
+	// local_savestate_region += sizeOfCurrentBlock;
 
-	startOfCurrentBlock += sizeOfCurrentBlock;
-	sizeOfCurrentBlock = *((int*) startOfCurrentBlock);
+	// startOfCurrentBlock += sizeOfCurrentBlock;
+	// sizeOfCurrentBlock = *((int*) startOfCurrentBlock);
 
-	memcopy(startOfCurrentBlock,local_savestate_region,sizeOfCurrentBlock);
-	local_savestate_region += sizeOfCurrentBlock;
+	// memcopy(startOfCurrentBlock,local_savestate_region,sizeOfCurrentBlock);
+	// local_savestate_region += sizeOfCurrentBlock;
 
-	LoadGeoData(local_savestate_region);
+	// LoadGeoData(local_savestate_region);
 
 }

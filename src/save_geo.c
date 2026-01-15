@@ -17,23 +17,26 @@ void SaveGeoData(byte* current_mem_region)
     // Loop over the amount of moving textures
     for (int i = 0; i < _amount_of_moving_textures; i++)
     {
+        printf("size %d: %X\n", i, 1);
         // Copy the specific moving texture data
         memcopy(local_mem_region, _ptr_moving_texture_data[i], sizeof(int));
         local_mem_region += 1;
+         printf("size %d: %X\n", i, 2);
 
         short texturesArrayOffset = *(short*)((int*)_ptr_moving_texture_data[i] + 1);
         int* ptr_textureBlock = (int*)_ptr_textures_array[texturesArrayOffset];
         int* ptr_movingTextureUpdateRelated = (ptr_textureBlock + 6);
+         printf("size %d: %X\n", i, 3);
         memcopy(local_mem_region, ptr_movingTextureUpdateRelated, sizeof(int));
         local_mem_region += 1;
-
+        printf("size %d: %X\n", i, 4);
 
         unsigned char movingTextureOffset = *((char*)ptr_textureBlock + 0x17);
         unsigned char movingTextureSize = *((char*)ptr_textureBlock + 0x14);
         int* ptr_movingTexture = ptr_textureBlock + 0x7 + movingTextureOffset;
         memcopy(local_mem_region, ptr_movingTexture, movingTextureSize * sizeof(int));
         local_mem_region += movingTextureSize;
-        //printf("size %d: %X\n", i, movingTextureSize);
+        printf("size %d: %X\n", i, movingTextureSize);
     }
 
     // for (int i = 0; i < _amount_of_low_lod_textures; i++)

@@ -2,10 +2,10 @@
   "version": "1.0",
   "project_name": "Spyro2NewanMod",
   "project_folder": "./",
-  "currently_selected_build_index": 0,
+  "currently_selected_build_index": 1,
   "build_versions": [
     {
-      "build_name": "DEFAULT",
+      "build_name": "PS1",
       "platform": "PS1",
       "symbols_file": "DEFAULT.txt",
       "injection_files": [
@@ -38,6 +38,101 @@
             "./src/timers.c"
           ],
           "memory_address": "8000B0B8",
+          "size": "0",
+          "injection_file": "SCUS_944.25",
+          "injection_file_address": "0x48",
+          "auto_calculate_injection_file_address": false,
+          "injection_type": "existing_file",
+          "enabled": true
+        }
+      ],
+      "hooks": [
+        {
+          "name": "hook1",
+          "code_files": [
+            "./asm/hook.s"
+          ],
+          "memory_address": "80011afc",
+          "size": "0",
+          "injection_file": "SCUS_944.25",
+          "injection_file_address": "0x22FC",
+          "auto_calculate_injection_file_address": true,
+          "enabled": true
+        },
+        {
+          "name": "hook2",
+          "code_files": [
+            "./asm/hook2.s"
+          ],
+          "memory_address": "80035bac",
+          "size": "0",
+          "injection_file": "SCUS_944.25",
+          "injection_file_address": "0x263AC",
+          "auto_calculate_injection_file_address": true,
+          "enabled": true
+        },
+        {
+          "name": "hook3",
+          "code_files": [
+            "./asm/hook3.s"
+          ],
+          "memory_address": "80035b64",
+          "size": "0",
+          "injection_file": "SCUS_944.25",
+          "injection_file_address": "0x26364",
+          "auto_calculate_injection_file_address": true,
+          "enabled": true
+        },
+        {
+          "name": "hook4",
+          "code_files": [
+            "./asm/hook4.s"
+          ],
+          "memory_address": "80035c00",
+          "size": "0",
+          "injection_file": "SCUS_944.25",
+          "injection_file_address": "0x26400",
+          "auto_calculate_injection_file_address": true,
+          "enabled": true
+        }
+      ],
+      "binary_patches": [],
+      "multi_patches": []
+    },
+    {
+      "build_name": "PS2",
+      "platform": "PS1",
+      "symbols_file": "DEFAULT.txt",
+      "injection_files": [
+        "SCUS_944.25"
+      ],
+      "injection_file_offsets": {
+        "SCUS_944.25": "F800"
+      },
+      "injection_file_types": {
+        "SCUS_944.25": "disk"
+      },
+      "extracted_game_folder": "./.config/game_files/DEFAULT",
+      "main_executable": "SCUS_944.25",
+      "source_path": "D:/PSX games/Spyro 2 (U).bin",
+      "compiler_flags": "-Os",
+      "is_single_file_mode": false,
+      "single_file_path": null,
+      "section_maps": {},
+      "code_caves": [
+        {
+          "name": "Header",
+          "code_files": [
+            "./src/doublejump.c",
+            "./src/main.c",
+            "./src/savestate.c",
+            "./src/common.c",
+            "./src/pauseMenu.c",
+            "./src/save_geo.c",
+            "./src/LevelWarp.c",
+            "./src/timers.c"
+          ],
+          "memory_address": "8000A91C",
           "size": "0",
           "injection_file": "SCUS_944.25",
           "injection_file_address": "0x48",

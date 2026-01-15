@@ -107,6 +107,21 @@ _lives = 0x8006712c;
 _unknown_death = 0x80067178;
 _unknown_death2 = 0x80067024;
 
+erflag = 0x800646ae;
+
+glacierbridge = 0x80064672;
+aquariasub = 0x80064676;
+magmalift = 0x8006467a;
+glimmerbridge = 0x8006467e;
+swim = 0x80064682;
+climb = 0x80064686;
+headbash = 0x8006468a;
+aquariawall = 0x8006468e;
+zephyr = 0x8006469a;
+shady = 0x8006469e;
+icy = 0x800646a2;
+canyon = 0x800646ba;
+
 LIBC_bzero = 0x8005c1b8;
 
 _splashTransition = 0x800698f4;
