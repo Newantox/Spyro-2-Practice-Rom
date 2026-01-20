@@ -114,8 +114,6 @@ void _VectorCopy(Vector* to, Vector* from);
 
 void _PlayAudio(int id, int p2, int p3);
 
-void _testfunction();
-
 void GAME_GameOver();
 void GAME_OnDeath();
 int* GAME_OnWorldEnter(Vector* p1);

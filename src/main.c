@@ -127,8 +127,6 @@ void mainFunction() {
 		GAME_total_skillpoints = 0;
 		LIBC_bzero((unsigned char*)&GAME_skillpoint_flags, 0x20);
 
-		//ClearWorldStuffTest();
-
 		//Reset unknown
 		//GAME_unknown_prog
 
@@ -162,58 +160,3 @@ void* memcopy(void* dest, const void* src, int len) {
 	}
 	return dest;
 }
-
-void ClearWorldStuffTest()
-{
-	*(u32*)0x80067008 = 0;
-	*(u32*)0x80067100 = 0;
-	*(u32*)0x8006701C = 0;
-
-	*(u32*)0x80066FA8 = 0;
-
-	*(u32*)0x80067084 = 0;
-	*(u32*)0x80067088 = 0;
-	*(u32*)0x8006708C = 0;
-
-	*(u32*)0x80066F30 = 0;
-	*(u32*)0x80066EF8 = 0;
-	*(u32*)0x80066EFC = 0;
-	*(u32*)0x80066F50 = 0;
-	*(u32*)0x80067038 = 0;
-	*(u32*)0x800670F4 = 0;
-
-	*(u32*)0x80067148 = 0;
-	*(u32*)0x80066ff0 = 0;
-	*(u32*)0x80066f44 = 0;
-	*(u32*)0x80066ff4 = 0;
-
-	*(u8*)0x8006AC01 = 0;
-	*(u8*)0x8006AC00 = 0;
-	*(u8*)0x8006ABFF = 0;
-	*(u8*)0x8006ABFE = 0;
-	*(u8*)0x8006ABFD = 0;
-	*(u8*)0x8006ABFC = 0;
-	*(u8*)0x8006ABFB = 0;
-	*(u8*)0x8006ABFA = 0;
-	*(u8*)0x8006ABF9 = 0;
-	*(u8*)0x8006ABF8 = 0;
-
-	*(u32*)0x80066FD0 = 0;
-	*(u32*)0x80066F3C = 0;
-	*(u32*)0x80067EC4 = 0;
-
-	memset(0x8006aa1c, 0, 0x130);
-}
-
-/* void ToggleFireball() {
-	ButtonCombo(L2_BUTTON + R2_BUTTON,&flag1);
-
-	if (flag1) {
-		_fireballFlag = 1 - _fireballFlag;
-		if (_fireballFlag) {
-			StartTempText(600,"Fireball",12);
-		} else {
-			StartTempText(600,"Flame",2);
-		}
-	}
-}*/

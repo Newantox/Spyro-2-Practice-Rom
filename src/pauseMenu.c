@@ -27,7 +27,6 @@ void MenuToggle() {
 
 void FireballToggle() {
 	_fireballFlag = 1 - _fireballFlag;
-	_testfunction;
 }
 
 void SubMenu(Menu* submenu) {

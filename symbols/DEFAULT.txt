@@ -1,7 +1,6 @@
 printf = 0x8005ab18;
 sprintf = 0x800594ac;
 DrawText = 0x8004a374;
-_testfunction = 0x8002db08;
 memset = 0x8001b3c8;
 memcpy = 0x8001b40c;
 
