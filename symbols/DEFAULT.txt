@@ -7,6 +7,7 @@ memcpy = 0x8001b40c;
 _spyro = 0x80069ff0;
 _cameraZ = 0x80067eb4;
 
+ptr_sparx = 0x80067028;
 ptr_MobyArray = 0x80066f14;
 ptrToEndOfMobys = 0x80066FB4;
 ptr_DynamicMobyArray = 0x80066fd4;
@@ -45,10 +46,13 @@ _spyroByteRotationZ = 0x80069ffe;
 
 _RenderGame = 0x800156fc;
 
+DrawSync = 0x800557e4;
+
 _ReadInput = 0x8001271c;
 
 _VectorCopy = 0x8001bdb0;
 
+_fodderUntilLife = 0x80061aac;
 _currentButtons = 0x8006a9ac;
 _inputState = 0x800683a0;
 
@@ -59,6 +63,8 @@ _DrawText_Right = 0x8004da6c;
 
 _firstOffset = 0x80039a80;
 _secondOffset = 0x80039a90;
+
+_createLevelObjectFunc = 0x800670b4;
 
 _audioBank = 0x80067020;
 _PlayAudio = 0x80050720;
@@ -143,3 +149,8 @@ _ptr_moving_collision_data = 0x800681F8;
 _ptr_moving_texture_data = 0x800681E8;
 _ptr_low_lod_texture_data = 0x80068208;
 _ptr_textures_array = 0x800681BC;
+_saveRealCheckpoint = 0x8004c0c8;
+_loadRealCheckpoint = 0x8004c1ac;
+
+_spyroAnimation = 0x8006A040;
+_updatedObjects = 0x800685f0;

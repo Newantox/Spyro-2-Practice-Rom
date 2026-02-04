@@ -377,7 +377,7 @@
       },
       "extracted_game_folder": "./.config/game_files/PS2",
       "main_executable": "SCUS_944.25",
-      "source_path": "C:/Users/bensy/OneDrive/Desktop/Tool/Spyro 2 - Ripto's Rage! (USA).cue",
+      "source_path": "D:/PSX games/Spyro 2 (U).bin",
       "compiler_flags": "-Os",
       "is_single_file_mode": false,
       "single_file_path": null,

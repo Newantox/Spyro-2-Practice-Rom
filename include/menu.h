@@ -1,65 +1,53 @@
 #ifndef MENU_H
 #define MENU_H
 
-#define UNSELECTED_COLOR 0x4
-#define SELECTED_COLOR 0x6
-
-// Enums
-enum MenuTypes
-{
-    MENU_TYPE_TOGGLE,
-    MENU_TYPE_MULTI
-};
+typedef void (*MenuActionVoid)(void);
+typedef void (*MenuActionInt)(int);
 
 typedef enum
 {
-    MENU_STATE_CLOSED = 0,
-    MENU_STATE_OPENING,
-    MENU_STATE_OPEN,
-    MENU_STATE_CLOSING
-} MenuState;
+    MENU_TYPE_LIST,
+    MENU_TYPE_GRID
+} MenuType;
 
-enum
+typedef struct
 {
-    VIBRATION_TOGGLE,
-    WAFFLE_TOGGLE,
-    DEREK_TOGGLE
-};
+    const char* label;
+    void*       flagPtr;
+    MenuActionVoid actionVoid;
+    MenuActionInt  actionInt;
+    int            param;
 
-// Scructs
-struct MenuElement
+} MenuEntry;
+
+typedef struct
 {
-    const char* text[16];
-    union
-    {
-        bool enabled;
-        s32 selection_option;
-    };
-    s32 type;
-};
-typedef struct MenuElement MenuElement;
+    const MenuEntry* entries;
+    int count;
+    MenuType type;
+    int showValues;   // 0 = off, 1 = show "Label: X"
+} GameMenu;
 
-struct Menu
-{
-    const char* title;
-    s32 x1, x2, y1, y2;
+#define GRID_COLS 3
+#define GRID_ROWS 10
 
-    MenuState state;
 
-    MenuElement elements[16];
-    s32 amount_of_elements;
-    s32 current_selection;
-};
-typedef struct Menu Menu;
+#define LEVEL_ID_ARRAY ((u8*)0x80064994)
 
-// Prototypes
-void UpdateMenu(Menu* menu);
-void UpdateAllMenus();
+#define DIR_UP     0
+#define DIR_DOWN   1
+#define DIR_LEFT   2
+#define DIR_RIGHT  3
 
-// Include these global menu's and menu elements with anything that includes menu.h
-extern Menu main_menu;
-extern MenuElement vibration_toggle;
-extern MenuElement balls_toggle;
-extern MenuElement cheat_toggle;
+#define GRID_START_X 20
+#define GRID_START_Y 60
+#define GRID_CELL_W  160
+#define GRID_CELL_H  12
 
-#endif /* MENU_H */
+#define MENU_TYPE_BOOL   0
+#define MENU_TYPE_INT8   1
+#define MENU_TYPE_INT16  2
+#define MENU_TYPE_INT32  3
+
+#endif
+

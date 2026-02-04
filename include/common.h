@@ -1,7 +1,7 @@
 #ifndef COMMON_H
 #define COMMON_H
 
-typedef int bool;
+//typedef int bool;
 
 #define FALSE 0
 #define TRUE 1
@@ -10,8 +10,13 @@ typedef int bool;
 
 #define BUTTON -1
 #define SUBMENU -2
+#define GRID_COUNT 30
 
+
+void MenuActions(void);
 typedef unsigned char byte;
+
+void DrawSync(int x);
 
 typedef struct Vector
 {
@@ -79,7 +84,24 @@ enum InputFlags
 
     L3_BUTTON = 0x0200,
     R3_BUTTON = 0x0400
+
 };
+
+enum AnalogFlags
+{
+    ANALOG_NONE  = 0,
+
+    LSTICK_UP    = 1 << 0,
+    LSTICK_RIGHT = 1 << 1,
+    LSTICK_DOWN  = 1 << 2,
+    LSTICK_LEFT  = 1 << 3,
+
+    RSTICK_UP    = 1 << 4,
+    RSTICK_RIGHT = 1 << 5,
+    RSTICK_DOWN  = 1 << 6,
+    RSTICK_LEFT  = 1 << 7
+};
+
 
 extern int* ptr_MobyArray;
 extern byte* ptrToEndOfMobys;
@@ -105,6 +127,7 @@ void LIBC_bzero(unsigned char* p, int n);
 void _DrawOutlinedBG(short left, short right, short top, short bottom);
 void _DrawDarkTransparentRect(short left, short right, short top, short bottom);
 
+extern int _fodderUntilLife;
 int printf(char* str, ...);
 int sprintf(char* str, char* format, ...);
 void DrawText(char* text, int x, int y, int colorIndex, int* unk);
@@ -135,6 +158,8 @@ extern char _fireballFlag;
 extern char _updateFlags;
 extern int _cheatSpyroColor;
 extern int _colorArray[14];
+
+extern int _spyroAnimation;
 
 extern int _audioBank;
 
@@ -197,21 +222,22 @@ extern short _sineLookup[256];
 
 extern char _spyroByteRotationZ;
 
-extern short erflag;
+extern char erflag;
 
 extern short glacierbridge;
 extern short aquariasub;
 extern short magmalift;
 extern short glimmerbridge;
-extern short swim;
-extern short climb;
-extern short headbash;
+extern char swim;
+extern char climb;
+extern char headbash;
 extern short aquariawall;
 extern short zephyr;
 extern short shady;
 extern short icy;
 extern short canyon;
 
+extern int * ptr_sparx;
 extern int * ptr_dynamic_terrain;
 
 extern int * _ptr_moving_collision_data;
@@ -220,8 +246,13 @@ extern int * _ptr_low_lod_texture_data;
 extern int * _ptr_textures_array;
 
 extern int _unkLeaveLevel;
+extern void _saveRealCheckpoint(int, int, int);
+extern void _loadRealCheckpoint(int);
 
 extern int lookToStartTimer;
 extern void updateTimers(void);
+
+extern int (*_createLevelObjectFunc)(int,int);
+extern int * _updatedObjects;
 
 #endif /* COMMON_H */

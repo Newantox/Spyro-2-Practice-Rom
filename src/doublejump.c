@@ -1,6 +1,6 @@
 #include <common.h>
 
-bool djflag = 0;
+int djflag = 1;
 int waterModifier = 4096;
 int proxyModifier = 4096;
 
@@ -8,7 +8,7 @@ void DJReplacement() {
 	_maybeSpyroHorizontalDecay = 0x800;
 	_spyroTrueVelocityX = (int) _cosineLookup[_spyroByteRotationZ] >> 1;
 	_spyroTrueVelocityY = (int) _sineLookup[_spyroByteRotationZ] >> 1;
-	if (djflag) {
+	if (!djflag) {
 		_spyroTrueVelocityZ = 0;
 	}
 	if ((_spyroDJRelatedUnk == 3) && (waterModifier > 0)) {
@@ -18,7 +18,7 @@ void DJReplacement() {
 }
 
 void DJReplacement2() {
-	if (_spyroAirTime < 4 || !djflag) {
+	if (_spyroAirTime < 4 || djflag) {
 		_spyroDJRelatedUnk = 0;
 	}
 	else {

@@ -4,6 +4,10 @@
 #define TYPES_H
 
 #include <stddef.h>
+// Only include bool macro if below C23, where its a keyword
+#if __STDC_VERSION__ < 202311L
+#include <stdbool.h>
+#endif
 
 // ==================== Type Definitions ====================
 
